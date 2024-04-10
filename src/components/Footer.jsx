@@ -4,8 +4,6 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 function Footer() {
 
-    const footYear = new Date().getFullYear()
-
   return (
     <footer className="footer items-center p-4 bg-neutral text-neutral-content">
         <div className="container mx-auto flex flex-col justify-between items-center content-center">
