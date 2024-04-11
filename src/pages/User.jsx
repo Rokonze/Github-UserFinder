@@ -52,7 +52,7 @@ function User() {
             <div className="  mb-6 md:mb-0" >
                 <div className=" shadow-xl card image-full " >
                     <figure >
-                        <img   src={avatar_url} alt="" />
+                        <img   src={avatar_url} alt="{login}" />
                     </figure>
                     <div className="card-body justify-end  ">
                         <h2 className="card-title mb-0 text-slate-300">
