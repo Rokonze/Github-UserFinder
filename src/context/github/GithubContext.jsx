@@ -4,11 +4,13 @@ import githubReducer from "./GithubReducer";
 const GithubContext = createContext()
 
 const GITHUB_URL = 'https://api.github.com/search/users'
+const GITHUB_USER_URL = 'https://api.github.com/users'
 
 export const GithubProvider = ({children}) => {
 
     const initialState = {
         users: [],
+        user: {},
         loading: false,
     }
 
@@ -36,6 +38,27 @@ export const GithubProvider = ({children}) => {
         })
     }
 
+    const getUser = async (login) => {
+        setLoading()
+        
+        
+
+        const res = await fetch(`${GITHUB_USER_URL}/${login}`)
+
+        if(Response.status === 404) {
+            window.location = '/notfound'
+        } else {
+            const data = await res.json()
+
+            dispatch({
+                type: 'GET_USER',
+                payload: data
+            })
+        }
+
+        
+    }
+
     // Set loading
 
     const setLoading = () => {
@@ -49,8 +72,10 @@ export const GithubProvider = ({children}) => {
         value={{
             users: state.users,
             loading: state.loading,
+            user: state.user,
             searchUsers,
-            clearUsers
+            clearUsers,
+            getUser
         }}
     >
         {children}
