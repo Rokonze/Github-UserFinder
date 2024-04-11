@@ -12,9 +12,9 @@ function UserItem({user: {login, avatar_url}}) {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='flex flex-col items-center'>
                 <h2 className="card-title">{login}</h2>
-                <Link className='text-base-content text-opacity-40' to={`/users/${login}`}>Visit Profile
+                <Link className='text-base-content text-opacity-40 btn btn-ghost btn-sm' to={`/users/${login}`}>Visit Profile
                 </Link>
             </div>
         </div>
